@@ -1,0 +1,19 @@
+{
+  "name": "officesmoker",
+  "version": "0.0.1",
+  "description": "Telegram office smoker bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calacitizen/officesmoker.git"
+  },
+  "author": "calacitizen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calacitizen/officesmoker/issues"
+  },
+  "homepage": "https://github.com/calacitizen/officesmoker#readme"
+}
