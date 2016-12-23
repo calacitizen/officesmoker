@@ -23,10 +23,11 @@ const ms = {
 const img   = 'v.jpg',
       sm    = 's.jpg',
       ur    = 'n.jpg',
+      w     = 'w.jpg',
       basta = 'basta.jpg',
-      answers = { start: '🚬  Новый день', end: '🚭  Баста', now: '🔥 Срочный покур'},
+      answers = { start: '🚬  Новый день', end: '🚭  Баста', now: '🔥 Срочный покур', how: 'Сколько осталось?'},
       resources = path.join(path.resolve(__dirname), 'resources'),
-      hour = 5000;
+      hour = 3600000;
 
 let timers = {};
 
@@ -58,7 +59,8 @@ bot.hears(answers.start, (ctx) => {
   return ctx.reply(ms.goodBoy,
     Telegram.Markup
       .keyboard([
-        [answers.end, answers.now]
+        [answers.end, answers.now],
+        [answers.how]
       ])
       .resize()
       .extra()
@@ -79,6 +81,7 @@ bot.hears(answers.end, (ctx) => {
   )
 });
 
+
 bot.hears(answers.now, (ctx) => {
   clearInterval(timers[ctx.chat.id]);
   delete timers[ctx.chat.id];
@@ -90,6 +93,11 @@ bot.hears(answers.now, (ctx) => {
   ctx.replyWithPhoto({ source: path.join(resources, ur) });
   return ctx.reply(ms.urgentTimeTo);
 });
+
+bot.hears(answers.how, (ctx) => {
+  return ctx.replyWithPhoto({ source: path.join(resources, w) });
+});
+
 
 bot.on('text', (ctx) => {
   return Promise.all([
