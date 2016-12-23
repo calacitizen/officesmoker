@@ -20,9 +20,10 @@ const ms = {
   urgentTimeTo: 'ААААААА!!! БЫСТРЕЕ. ПИСОС. КУРИТЬ!'
 };
 
-const img = 'v.jpg',
-      sm  = 's.jpg',
-      ur  = 'n.jpg',
+const img   = 'v.jpg',
+      sm    = 's.jpg',
+      ur    = 'n.jpg',
+      basta = 'basta.jpg',
       answers = { start: '🚬  Новый день', end: '🚭  Баста', now: '🔥 Срочный покур'},
       resources = path.join(path.resolve(__dirname), 'resources'),
       hour = 5000;
@@ -67,6 +68,7 @@ bot.hears(answers.start, (ctx) => {
 bot.hears(answers.end, (ctx) => {
   clearInterval(timers[ctx.chat.id]);
   delete timers[ctx.chat.id];
+  ctx.replyWithPhoto({ source: path.join(resources, basta) });
   return ctx.reply(ms.getOut,
     Telegram.Markup
       .keyboard([
