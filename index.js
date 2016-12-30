@@ -32,7 +32,7 @@ const img   = 'v.jpg',
       basta = 'basta.jpg',
       answers = { start: '🚬  Новый день', end: '🚭  Баста', now: '🔥 Срочный покур', how: 'Сколько осталось?'},
       resources = path.join(path.resolve(__dirname), 'resources'),
-      min  = 2000,
+      min  = 60000,
       hour = 3600000;
 
 let timers = {};
